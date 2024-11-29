@@ -13,24 +13,52 @@ class FamilyStructure:
         self.last_name = last_name
 
         # example list of members
-        self._members = []
+        self._members = [
+            {
+            "age": 33,
+            "first_name": "John",
+            "id": 1,
+            "lastname": last_name,
+            "lucky_numbers": [7, 13, 22]
+            },
+            {
+            "age": 35,
+            "first_name": "Jane",
+            "id": 2,
+            "lastname": last_name,
+            "lucky_numbers": [10, 14, 3]
+            },
+            {
+            "age": 5,
+            "first_name": "Jimmy",
+            "id": 3,
+            "lastname": last_name,
+            "lucky_numbers": [1]
+            }
+        ]
 
-    # read-only: Use this method to generate random members ID's when adding members into the list
+    
     def _generateId(self):
         return randint(0, 99999999)
 
     def add_member(self, member):
-        # fill this method and update the return
-        pass
+     
+        self._members.append(member)
+        
 
     def delete_member(self, id):
-        # fill this method and update the return
-        pass
+       
+        for member in self._members:
+            if member['id'] == id:
+                self._members.remove(member) 
+                return True
 
     def get_member(self, id):
-        # fill this method and update the return
-        pass
+       
+        for member in self._members:
+            if member['id'] == id:
+                return member
 
-    # this method is done, it returns a list with all the family members
     def get_all_members(self):
+        print(self._members)
         return self._members
